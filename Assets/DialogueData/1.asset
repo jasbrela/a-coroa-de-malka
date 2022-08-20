@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 201e217b9c1ccd5408dcc11f4016b9c0, type: 3}
   m_Name: 1
   m_EditorClassIdentifier: 
-  mainText: "Ultimo dia de escola, eu... estou nervosa, ainda n\xE3o decidi o que
+  character: {fileID: 0}
+  scenario: {fileID: 0}
+  mainText: "\tUltimo dia de escola, eu... estou nervosa, ainda n\xE3o decidi o que
     fazer de faculdade. A minha fam\xEDlia me p\xF5e muita expectativa e meus amigos
     j\xE1 est\xE3o decididos, e isso me d\xE1 medo de perd\xEA-los..."
   options:
   - {fileID: 11400000, guid: 2b56281d837f687478e2a6632263d318, type: 2}
-  character: {fileID: 0}
-  scenario: {fileID: 0}
+  nextDialogue: {fileID: 0}

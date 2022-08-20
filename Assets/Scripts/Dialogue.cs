@@ -7,4 +7,7 @@ public class Dialogue : ScriptableObject
     public Sprite scenario;
     [TextArea(1, 5)] public string mainText;
     public DialogueOption[] options;
+
+    [Header("if NO options, please insert the next dialogue")]
+    public Dialogue nextDialogue;
 }

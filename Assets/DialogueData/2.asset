@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   character: {fileID: 0}
   scenario: {fileID: 0}
-  mainText: "Eu estou perdida e quando me vejo no espelho n\xE3o consigo me aceitar.
+  mainText: "\tEu estou perdida e quando me vejo no espelho n\xE3o consigo me aceitar.
     Minha m\xE3e fica me for\xE7ando e eu... me sinto feia, sepelo menos tivesse
     o cabelo melhor..."
   options:
   - {fileID: 11400000, guid: 2b56281d837f687478e2a6632263d318, type: 2}
+  nextDialogue: {fileID: 0}
