@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 201e217b9c1ccd5408dcc11f4016b9c0, type: 3}
-  m_Name: 1
+  m_Name: 8 2
   m_EditorClassIdentifier: 
   person: 0
   character: {fileID: 0}
   scenario: {fileID: 0}
-  mainText: "Ugh! Despertador horr\xEDvel, eu n\xE3o queria acordar... S\xF3 mais
-    cinco minutinhos, por favor..."
+  mainText: " Eu queria ver ela de novo algum dia, eu gosto muito dela, ela n\xE3o
+    se importa com o que dizem dela. Eu queria ser como ela..."
   options: []
   tone: 1
-  nextDialogue: {fileID: 11400000, guid: 793789b8262cbb3408b4503297fc9de4, type: 2}
+  nextDialogue: {fileID: 11400000, guid: bd89c51992183524493df65ff8b11e25, type: 2}

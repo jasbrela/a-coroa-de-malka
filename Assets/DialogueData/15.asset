@@ -9,8 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 07056a0e393a32f4fbc0e390cbed2fc5, type: 3}
-  m_Name: 1_1
+  m_Script: {fileID: 11500000, guid: 201e217b9c1ccd5408dcc11f4016b9c0, type: 3}
+  m_Name: 15
   m_EditorClassIdentifier: 
-  text: Vestibulum enim libero, lacinia et nisl egestas, eleifend tempor eros
+  person: 1
+  character: {fileID: 0}
+  scenario: {fileID: 0}
+  mainText: "Podemos perder mesmo assim, \xE9 a vida. N\xE3o \xE9 uma fraqueza. Voc\xEA
+    devia buscar o que gosta e ir at\xE9 o fim, porque voc\xEA quer!"
+  options: []
+  tone: 1
   nextDialogue: {fileID: 11400000, guid: bcd5ae024d532a04fbd72aea5799551a, type: 2}

@@ -12,13 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 201e217b9c1ccd5408dcc11f4016b9c0, type: 3}
   m_Name: 4
   m_EditorClassIdentifier: 
-  person: 3
+  person: 0
   character: {fileID: 0}
   scenario: {fileID: 0}
-  mainText: Nulla porta nunc non risus laoreet, a commodo sem facilisis. Vestibulum
-    scelerisque porta volutpat. Nam mattis, erat vitae iaculis vehicula, felis nisi
-    sodales metus, at tristique sem ante non est. Sed vitae turpis ex. Pellentesque
-    habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+  mainText: "Preciso arrumar o meu cabelo... Como ser\xE1 que fica bom? Eu n\xE3o
+    consigo gostar... \xE9 t\xE3o estranho... minha m\xE3e me for\xE7a sempre a fazer
+    chapinha, mas eu tamb\xE9m n\xE3o suporto!"
   options: []
-  tone: 2
-  nextDialogue: {fileID: 0}
+  tone: 1
+  nextDialogue: {fileID: 11400000, guid: a5c8ee12ae820f94296770b653574655, type: 2}

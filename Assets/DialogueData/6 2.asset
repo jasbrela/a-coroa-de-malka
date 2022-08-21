@@ -10,14 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 201e217b9c1ccd5408dcc11f4016b9c0, type: 3}
-  m_Name: 3 1
+  m_Name: 6 2
   m_EditorClassIdentifier: 
-  person: 1
+  person: 0
   character: {fileID: 0}
   scenario: {fileID: 0}
-  mainText: Ut id nibh ac nibh dapibus commodo vitae ac nibh. Fusce mollis, ante
-    quis vehicula feugiat, libero urna consectetur nisl, ac lacinia dolor justo nec
-    tellus.
+  mainText: "Bem, pelo menos tenho como ir at\xE9 l\xE1, seja onde for. Economizo
+    na passagem, haha"
   options: []
-  tone: 0
-  nextDialogue: {fileID: 11400000, guid: a6e1609d933be8e4da08608eb1cb0e52, type: 2}
+  tone: 1
+  nextDialogue: {fileID: 11400000, guid: 601ad874b74941446be71fac8945a59f, type: 2}

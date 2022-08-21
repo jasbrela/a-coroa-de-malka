@@ -14,4 +14,10 @@ public class Menu : MonoBehaviour
         GetComponent<AudioSource>().Play();
         Application.Quit();
     }
+    
+    public void MainMenu()
+    {
+        GetComponent<AudioSource>().Play();
+        SceneManager.LoadScene("Menu");
+    }
 }

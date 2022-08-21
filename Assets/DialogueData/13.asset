@@ -10,13 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 201e217b9c1ccd5408dcc11f4016b9c0, type: 3}
-  m_Name: 1
+  m_Name: 13
   m_EditorClassIdentifier: 
-  person: 0
+  person: 1
   character: {fileID: 0}
   scenario: {fileID: 0}
-  mainText: "Ugh! Despertador horr\xEDvel, eu n\xE3o queria acordar... S\xF3 mais
-    cinco minutinhos, por favor..."
+  mainText: "Malk\xE1, h\xE1 um epis\xF3dio de cruzada nas estrelas em que o Capit\xE3o
+    Kickard diz que n\xE3o importa o quanto certo possamos fazer as coisas para os
+    outros."
   options: []
   tone: 1
-  nextDialogue: {fileID: 11400000, guid: 793789b8262cbb3408b4503297fc9de4, type: 2}
+  nextDialogue: {fileID: 11400000, guid: f49c1cd9db3db6344a569040c66c5111, type: 2}
