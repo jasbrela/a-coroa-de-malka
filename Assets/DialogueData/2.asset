@@ -17,6 +17,6 @@ MonoBehaviour:
   mainText: "\tEu estou perdida e quando me vejo no espelho n\xE3o consigo me aceitar.
     Minha m\xE3e fica me for\xE7ando e eu... me sinto feia, sepelo menos tivesse
     o cabelo melhor..."
-  options:
-  - {fileID: 11400000, guid: 2b56281d837f687478e2a6632263d318, type: 2}
-  nextDialogue: {fileID: 0}
+  options: []
+  tone: 0
+  nextDialogue: {fileID: 11400000, guid: a6e1609d933be8e4da08608eb1cb0e52, type: 2}

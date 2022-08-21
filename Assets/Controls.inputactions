@@ -37,15 +37,32 @@
                     "action": "NextDialogue",
                     "isComposite": false,
                     "isPartOfComposite": false
-                },
+                }
+            ]
+        },
+        {
+            "name": "UI",
+            "id": "7a0b6d34-a56d-4ce0-8656-ac99e7cc1dfc",
+            "actions": [
+                {
+                    "name": "CloseHistoric",
+                    "type": "Button",
+                    "id": "635d3393-605f-4ef5-9db2-429890277017",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
                 {
                     "name": "",
-                    "id": "fcfe8964-3be3-4684-b162-f2c9443bd8d9",
-                    "path": "<Mouse>/leftButton",
+                    "id": "7d97e0f5-c445-469d-9984-9305af9ab19c",
+                    "path": "<Keyboard>/escape",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
-                    "action": "NextDialogue",
+                    "groups": "Mouse and Keyboard",
+                    "action": "CloseHistoric",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.Events;
 
 [CreateAssetMenu(menuName = "Dialogue/Option", fileName = "new Option")]
 public class DialogueOption : ScriptableObject

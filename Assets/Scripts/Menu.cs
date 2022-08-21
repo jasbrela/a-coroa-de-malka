@@ -5,11 +5,13 @@ public class Menu : MonoBehaviour
 {
     public void StartGame()
     {
+        GetComponent<AudioSource>().Play();
         SceneManager.LoadScene("Game");
     }
 
     public void QuitGame()
     {
+        GetComponent<AudioSource>().Play();
         Application.Quit();
     }
 }

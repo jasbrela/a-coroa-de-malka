@@ -10,13 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 201e217b9c1ccd5408dcc11f4016b9c0, type: 3}
-  m_Name: 1
+  m_Name: 3
   m_EditorClassIdentifier: 
   character: {fileID: 0}
   scenario: {fileID: 0}
-  mainText: "\tUltimo dia de escola, eu... estou nervosa, ainda n\xE3o decidi o que
-    fazer de faculdade. A minha fam\xEDlia me p\xF5e muita expectativa e meus amigos
-    j\xE1 est\xE3o decididos, e isso me d\xE1 medo de perd\xEA-los..."
+  mainText: "If you\u2019re new to Unity Answers, please check our User Guide to
+    help you navigate through our website and refer to our FAQ for more information."
   options: []
-  tone: 1
-  nextDialogue: {fileID: 11400000, guid: bcd5ae024d532a04fbd72aea5799551a, type: 2}
+  tone: 2
+  nextDialogue: {fileID: 11400000, guid: 74f82db358b0a174391b1a80e78d26f9, type: 2}

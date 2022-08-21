@@ -2,118 +2,176 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.UI;
-
-public enum InputActions
-{
-    NextDialogue
-}
 
 public class DialogueManager : MonoBehaviour
 {
     [Header("Dialogue")]
     [SerializeField] private Dialogue firstDialogue;
-    [Range(0.0001f, 1f)][SerializeField] private float speed = 0.01f;
+    [Range(0.0001f, 1f)] [SerializeField] private float speed = 0.01f;
 
     [Space(10)] [Header("Input")]
     [SerializeField] private PlayerInput input;
 
     [Space(10)] [Header("Main UI")]
     [SerializeField] private GameObject mainParent;
-    [SerializeField] private TextMeshProUGUI mainText;
-    [SerializeField] private GameObject mainTextParent;
-    [SerializeField] private Image scenario;
-    [SerializeField] private Image character;
+    
+    [SerializeField] private DialogueLayout normalLayout;
+    [SerializeField] private DialogueLayout fullscreenLayout;
+
+    [Space(10)] [Header("Speech Bubbles")]
+    [SerializeField] private SpeechBubble normal;
+    [SerializeField] private SpeechBubble thinking;
 
     [Space(10)] [Header("Historic")]
     [SerializeField] private TextMeshProUGUI historic;
     [SerializeField] private GameObject historicParent;
+    
+    [Space(10)] [Header("Audio")]
+    [SerializeField] private AudioSource source;
+    [SerializeField] private AudioClip click;
 
-    [Space(10)][Header("Options")]
-    [SerializeField] private GameObject optionPrefab;
-    [SerializeField] private Transform optionsParent;
+    private DialogueLayout _currentLayout;
     
     private bool _hasOptions;
-    private bool _dialogueEnded;
+    private bool _typingEnded;
     private Dialogue _currentDialogue;
     private Dialogue _nextDialogue;
 
     private void Start()
     {
+        historic.text = "";
         CloseHistoric();
         SetUp(firstDialogue);
+
         input.actions[InputActions.NextDialogue.ToString()].performed += OnTrySkip;
+        input.actions[InputActions.CloseHistoric.ToString()].performed += CloseHistoric;
     }
 
-    private void OnTrySkip(InputAction.CallbackContext obj)
+    private void SetUp(Dialogue dialogue)
     {
-        if (!_dialogueEnded)
+        // Reset options
+        if (_currentDialogue != null && _currentDialogue.tone != Tone.Write)
+        {
+            foreach (Transform child in _currentLayout.GetOptionsParent())
+            {
+                Destroy(child.gameObject);
+            }
+        }
+        
+        _currentDialogue = dialogue;
+        _typingEnded = false;
+        
+        UpdateHistoric(_currentDialogue.mainText);
+        
+        SetLayout(dialogue.tone);
+        
+        _currentLayout.GetCrown().gameObject.SetActive(false);
+
+        switch (dialogue.tone)
+        {
+            case Tone.Normal:
+                _currentLayout.GetSpeechBubble().sprite = normal.background;
+                _currentLayout.GetCrown().sprite = normal.crown;
+                break;
+            case Tone.Think:
+                _currentLayout.GetSpeechBubble().sprite = thinking.background;
+                _currentLayout.GetCrown().sprite = thinking.crown;
+                break;
+        }
+
+        if (dialogue.scenario != null) _currentLayout.GetScenario().sprite = dialogue.scenario;
+        if (dialogue.character != null) _currentLayout.GetCharacter().sprite = dialogue.character;
+
+        _hasOptions = dialogue.options.Length > 0;
+        _nextDialogue = !_hasOptions ? dialogue.nextDialogue : null;
+        
+        StartCoroutine(Type());
+    }
+
+    private void SetLayout(Tone tone)
+    {
+        if (tone == Tone.Write)
+        {
+            normalLayout.gameObject.SetActive(false);
+            
+            _currentLayout = fullscreenLayout;
+            _currentLayout.gameObject.SetActive(true);
+        }
+        else
+        {
+            fullscreenLayout.gameObject.SetActive(false);
+            
+            _currentLayout = normalLayout;
+            _currentLayout.gameObject.SetActive(true);
+            _currentLayout.GetTextParent().SetActive(_currentDialogue.mainText.Length > 0);
+        }
+    }
+    
+    private IEnumerator Type()
+    {
+        _currentLayout.GetText().text = "";
+        foreach (char c in _currentDialogue.mainText)
+        {
+            if (_typingEnded) break;
+            _currentLayout.GetText().text += c;
+            yield return new WaitForSeconds(speed);
+        }
+        if (!_typingEnded) OnTypingEnded();
+    }
+
+    public void OnTrySkip()
+    {
+        if (!_typingEnded)
         {
             SkipTyping();
-        } else if (!_hasOptions && _dialogueEnded)
+        } else if (!_hasOptions && _typingEnded)
         {
             SetUp(_nextDialogue);
         }
     }
+    
+    private void OnTrySkip(InputAction.CallbackContext obj)
+    {
+        OnTrySkip();
+    }
 
     private void SkipTyping()
     {
-        mainText.text = _currentDialogue.mainText;
-        OnDialogueEnded();
+        _currentLayout.GetText().text = _currentDialogue.mainText;
+        OnTypingEnded();
     }
 
-    private IEnumerator Type()
+    private void OnTypingEnded()
     {
-        mainText.text = "";
-        foreach (char c in _currentDialogue.mainText)
+        _typingEnded = true;
+        StartCoroutine(CrownAnimation());
+        if (_currentDialogue.tone != Tone.Write)
         {
-            if (_dialogueEnded) break;
-            mainText.text += c;
-            yield return new WaitForSeconds(speed);
+            ShowOptions(_currentDialogue.options);
         }
     }
 
-    private void OnDialogueEnded()
+    private IEnumerator CrownAnimation()
     {
-        _dialogueEnded = true;
-        ShowOptions(_currentDialogue.options);
-    }
-    
-    private void SetUp(Dialogue dialogue)
-    {
-        _currentDialogue = dialogue;
-        _dialogueEnded = false;
-        
-        // Reset
-        foreach (Transform child in optionsParent)
+        while (_typingEnded)
         {
-            Destroy(child.gameObject);
+            _currentLayout.GetCrown().gameObject.SetActive(!_currentLayout.GetCrown().IsActive());
+            yield return new WaitForSeconds(0.5f);
         }
-
-        mainTextParent.SetActive(dialogue.mainText.Length > 0);
-
-        StartCoroutine(Type()); //mainText.text = dialogue.mainText;
-
-        UpdateHistoric(dialogue.mainText);
-        
-        if (dialogue.scenario != null) scenario.sprite = dialogue.scenario;
-        if (dialogue.character != null) character.sprite = dialogue.character;
-
-        _hasOptions = dialogue.options.Length > 0;
-        _nextDialogue = !_hasOptions ? dialogue.nextDialogue : null;
     }
 
     private void ShowOptions(DialogueOption[] options)
     {
         foreach (DialogueOption o in options)
         {
-            Option option = Instantiate(optionPrefab, optionsParent).GetComponent<Option>();
+            Option option = Instantiate(_currentLayout.GetOptionPrefab(), _currentLayout.GetOptionsParent()).GetComponent<Option>();
             option.SetUp(o, OnOptionChosen);
         }
     }
 
     private void OnOptionChosen(Dialogue dialogue, string text)
     {
+        source.PlayOneShot(click);
         UpdateHistoric(text);
         SetUp(dialogue);
     }
@@ -125,15 +183,21 @@ public class DialogueManager : MonoBehaviour
 
     public void OpenHistoric()
     {
+        input.SwitchCurrentActionMap("UI");
         mainParent.SetActive(false);
         historicParent.SetActive(true);
     }
-
+    
     public void CloseHistoric()
     {
         mainParent.SetActive(true);
         historicParent.SetActive(false);
+        input.SwitchCurrentActionMap("Dialogue");
     }
     
+    private void CloseHistoric(InputAction.CallbackContext obj)
+    {
+        CloseHistoric();
+    }
 
 }

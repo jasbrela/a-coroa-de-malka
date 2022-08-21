@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 07056a0e393a32f4fbc0e390cbed2fc5, type: 3}
-  m_Name: 1_1
+  m_Script: {fileID: 11500000, guid: 7d5a3b67cf8039b489033e2069046d63, type: 3}
+  m_Name: Think
   m_EditorClassIdentifier: 
-  text: abuble
-  nextDialogue: {fileID: 11400000, guid: bcd5ae024d532a04fbd72aea5799551a, type: 2}
+  background: {fileID: 21300000, guid: 8ee547189e8d2a641a19dd5d5cf88cc0, type: 3}
+  crown: {fileID: 21300000, guid: 38cfcfa3fb2e85142bf91156f7f94f47, type: 3}
