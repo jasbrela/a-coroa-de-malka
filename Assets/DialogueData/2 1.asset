@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 201e217b9c1ccd5408dcc11f4016b9c0, type: 3}
-  m_Name: 2
+  m_Name: 2 1
   m_EditorClassIdentifier: 
   character: {fileID: 0}
   scenario: {fileID: 0}
-  mainText: "\tEu estou perdida e quando me vejo no espelho n\xE3o consigo me aceitar.
-    Minha m\xE3e fica me for\xE7ando e eu... me sinto feia, sepelo menos tivesse
-    o cabelo melhor..."
+  mainText: "\tUt orci libero, mattis vel nisi at, posuere fringilla dolor. Sed nec
+    tincidunt arcu, ut dignissim quam. Interdum et malesuada fames ac ante ipsum
+    primis in faucibus."
   options: []
   tone: 0
   nextDialogue: {fileID: 11400000, guid: a6e1609d933be8e4da08608eb1cb0e52, type: 2}

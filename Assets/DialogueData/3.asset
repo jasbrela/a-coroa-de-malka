@@ -14,8 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   character: {fileID: 0}
   scenario: {fileID: 0}
-  mainText: "If you\u2019re new to Unity Answers, please check our User Guide to
-    help you navigate through our website and refer to our FAQ for more information."
+  mainText: Nulla porta nunc non risus laoreet, a commodo sem facilisis. Vestibulum
+    scelerisque porta volutpat. Nam mattis, erat vitae iaculis vehicula, felis nisi
+    sodales metus, at tristique sem ante non est. Sed vitae turpis ex. Pellentesque
+    habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
   options: []
   tone: 2
   nextDialogue: {fileID: 11400000, guid: 74f82db358b0a174391b1a80e78d26f9, type: 2}

@@ -14,9 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   character: {fileID: 0}
   scenario: {fileID: 0}
-  mainText: "\tUltimo dia de escola, eu... estou nervosa, ainda n\xE3o decidi o que
-    fazer de faculdade. A minha fam\xEDlia me p\xF5e muita expectativa e meus amigos
-    j\xE1 est\xE3o decididos, e isso me d\xE1 medo de perd\xEA-los..."
-  options: []
+  mainText: "\tLorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam gravida
+    pulvinar dictum. Maecenas in quam consectetur, suscipit nisl vel, vestibulum
+    mauris."
+  options:
+  - {fileID: 11400000, guid: 2b56281d837f687478e2a6632263d318, type: 2}
+  - {fileID: 11400000, guid: b154c6be096d8ff44bdb7088199327a0, type: 2}
   tone: 1
   nextDialogue: {fileID: 11400000, guid: bcd5ae024d532a04fbd72aea5799551a, type: 2}
