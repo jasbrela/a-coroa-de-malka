@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 201e217b9c1ccd5408dcc11f4016b9c0, type: 3}
   m_Name: 1
   m_EditorClassIdentifier: 
+  person: 0
   character: {fileID: 0}
   scenario: {fileID: 0}
-  mainText: "\tLorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam gravida
+  mainText: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam gravida
     pulvinar dictum. Maecenas in quam consectetur, suscipit nisl vel, vestibulum
-    mauris."
+    mauris.
   options:
   - {fileID: 11400000, guid: 2b56281d837f687478e2a6632263d318, type: 2}
   - {fileID: 11400000, guid: b154c6be096d8ff44bdb7088199327a0, type: 2}

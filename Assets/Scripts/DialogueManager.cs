@@ -1,8 +1,8 @@
-using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
@@ -66,7 +66,7 @@ public class DialogueManager : MonoBehaviour
     private void Start()
     {
         _speed = Fast;
-        //historic.text = "";
+        historic.text = "";
         CloseHistoric();
         SetUp(firstDialogue);
 
@@ -88,7 +88,7 @@ public class DialogueManager : MonoBehaviour
         _currentDialogue = dialogue;
         _typingEnded = false;
         
-        UpdateHistoric(_currentDialogue.mainText);
+        UpdateHistoric(_currentDialogue.mainText, _currentDialogue.person);
         
         SetLayout(dialogue.tone);
         
@@ -155,7 +155,14 @@ public class DialogueManager : MonoBehaviour
             SkipTyping();
         } else if (!_hasOptions && _typingEnded)
         {
-            SetUp(_nextDialogue);
+            if (_nextDialogue != null)
+            {
+                SetUp(_nextDialogue);
+            }
+            else
+            {
+                SceneManager.LoadScene("Ending");
+            }
         }
     }
     
@@ -201,13 +208,35 @@ public class DialogueManager : MonoBehaviour
     private void OnOptionChosen(Dialogue dialogue, string text)
     {
         source.PlayOneShot(click);
-        UpdateHistoric(text);
+        UpdateHistoric(text, Person.Malka);
         SetUp(dialogue);
     }
-
-    private void UpdateHistoric(string text)
+    
+    private void UpdateHistoric(string text, Person person)
     {
-        historic.text = text + "\n\n" + historic.text;
+        if (person != Person.Narrative)
+        {
+            historic.text = historic.text + "\n\n" + "<b>" + GetAccent(person) + ":</b> " + text;
+        }
+        else
+        {
+            historic.text = historic.text + "\n\n" + "          " + text;
+        }
+    }
+
+    private string GetAccent(Person person)
+    {
+        switch (person)
+        {
+            case Person.Julio:
+                return "Júlio";
+            case Person.Pamela:
+                return "Pâmela";
+            case Person.Malka:
+                return "Malká";
+            default:
+                return "404";
+        }
     }
 
     public void OpenHistoric()

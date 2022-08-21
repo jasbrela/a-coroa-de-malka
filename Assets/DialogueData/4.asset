@@ -10,8 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 201e217b9c1ccd5408dcc11f4016b9c0, type: 3}
-  m_Name: 3
+  m_Name: 4
   m_EditorClassIdentifier: 
+  person: 3
   character: {fileID: 0}
   scenario: {fileID: 0}
   mainText: Nulla porta nunc non risus laoreet, a commodo sem facilisis. Vestibulum
@@ -20,4 +21,4 @@ MonoBehaviour:
     habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
   options: []
   tone: 2
-  nextDialogue: {fileID: 11400000, guid: 74f82db358b0a174391b1a80e78d26f9, type: 2}
+  nextDialogue: {fileID: 0}
