@@ -1,22 +1,24 @@
+using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
 {
     [Header("Dialogue")]
     [SerializeField] private Dialogue firstDialogue;
-    [Range(0.0001f, 1f)] [SerializeField] private float speed = 0.01f;
 
     [Space(10)] [Header("Input")]
     [SerializeField] private PlayerInput input;
 
     [Space(10)] [Header("Main UI")]
     [SerializeField] private GameObject mainParent;
-    
     [SerializeField] private DialogueLayout normalLayout;
     [SerializeField] private DialogueLayout fullscreenLayout;
+    [SerializeField] private Image speedBtn;
+    [SerializeField] private Image historicBtn;
 
     [Space(10)] [Header("Speech Bubbles")]
     [SerializeField] private SpeechBubble normal;
@@ -25,10 +27,16 @@ public class DialogueManager : MonoBehaviour
     [Space(10)] [Header("Historic")]
     [SerializeField] private TextMeshProUGUI historic;
     [SerializeField] private GameObject historicParent;
-    
+
     [Space(10)] [Header("Audio")]
     [SerializeField] private AudioSource source;
     [SerializeField] private AudioClip click;
+
+    private const float Fast = 0.05f;
+    private const float Faster = 0.025f;
+    private const float Fastest = 0.01f;
+    private int _speedIndex = 1;
+    private float _speed;
 
     private DialogueLayout _currentLayout;
     
@@ -37,9 +45,28 @@ public class DialogueManager : MonoBehaviour
     private Dialogue _currentDialogue;
     private Dialogue _nextDialogue;
 
+    public void ToggleSpeed()
+    {
+        switch (_speedIndex)
+        {
+            case 1:
+                _speed = Faster;
+                _speedIndex++;
+                break;
+            case 2:
+                _speed = Fastest;
+                _speedIndex++;
+                break;
+            case 3:
+                _speed = Fast;
+                _speedIndex = 1;
+                break;
+        }
+    }
     private void Start()
     {
-        historic.text = "";
+        _speed = Fast;
+        //historic.text = "";
         CloseHistoric();
         SetUp(firstDialogue);
 
@@ -65,6 +92,8 @@ public class DialogueManager : MonoBehaviour
         
         SetLayout(dialogue.tone);
         
+        speedBtn.color = _currentLayout.GetButtonColor();
+        historicBtn.color = _currentLayout.GetButtonColor();
         _currentLayout.GetCrown().gameObject.SetActive(false);
 
         switch (dialogue.tone)
@@ -114,7 +143,7 @@ public class DialogueManager : MonoBehaviour
         {
             if (_typingEnded) break;
             _currentLayout.GetText().text += c;
-            yield return new WaitForSeconds(speed);
+            yield return new WaitForSeconds(_speed);
         }
         if (!_typingEnded) OnTypingEnded();
     }

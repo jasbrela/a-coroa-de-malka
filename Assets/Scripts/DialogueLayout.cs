@@ -13,6 +13,7 @@ public class DialogueLayout : MonoBehaviour
     [SerializeField] private Transform optionsParent;
     [SerializeField] private Image scenario;
     [SerializeField] private Image character;
+    [SerializeField] private Color colorBtn;
 
     public GameObject GetLayout()
     {
@@ -57,5 +58,10 @@ public class DialogueLayout : MonoBehaviour
     public Image GetCharacter()
     {
         return character;
+    }
+
+    public Color GetButtonColor()
+    {
+        return colorBtn;
     }
 }
