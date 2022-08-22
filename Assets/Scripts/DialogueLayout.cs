@@ -14,6 +14,8 @@ public class DialogueLayout : MonoBehaviour
     [SerializeField] private Image scenario;
     [SerializeField] private Image character;
     [SerializeField] private Color colorBtn;
+    [SerializeField] private TextMeshProUGUI personName;
+    [SerializeField] private GameObject personParent;
 
     public GameObject GetLayout()
     {
@@ -63,5 +65,15 @@ public class DialogueLayout : MonoBehaviour
     public Color GetButtonColor()
     {
         return colorBtn;
+    }
+
+    public GameObject GetPersonParent()
+    {
+        return personParent;
+    }
+
+    public TextMeshProUGUI GetPersonName()
+    {
+        return personName;
     }
 }

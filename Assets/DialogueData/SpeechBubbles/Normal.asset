@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d5a3b67cf8039b489033e2069046d63, type: 3}
   m_Name: Normal
   m_EditorClassIdentifier: 
-  background: {fileID: 21300000, guid: 4783af805d0bfc7439dd20630f3a99f6, type: 3}
+  background: {fileID: 21300000, guid: d96819036ad47b146a229f0a3d2650d2, type: 3}
   crown: {fileID: 21300000, guid: 38cfcfa3fb2e85142bf91156f7f94f47, type: 3}

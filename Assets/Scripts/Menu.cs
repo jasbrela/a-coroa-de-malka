@@ -3,21 +3,24 @@ using UnityEngine.SceneManagement;
 
 public class Menu : MonoBehaviour
 {
+    [SerializeField] private AudioSource source;
+    [SerializeField] private AudioClip click;
+    
     public void StartGame()
     {
-        GetComponent<AudioSource>().Play();
+        source.PlayOneShot(click);
         SceneManager.LoadScene("Game");
     }
 
     public void QuitGame()
     {
-        GetComponent<AudioSource>().Play();
+        source.PlayOneShot(click);
         Application.Quit();
     }
     
     public void MainMenu()
     {
-        GetComponent<AudioSource>().Play();
+        source.PlayOneShot(click);
         SceneManager.LoadScene("Menu");
     }
 }

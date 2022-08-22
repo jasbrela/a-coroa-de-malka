@@ -31,6 +31,7 @@ public class DialogueManager : MonoBehaviour
     [Space(10)] [Header("Audio")]
     [SerializeField] private AudioSource source;
     [SerializeField] private AudioClip click;
+    [SerializeField] private AudioClip alarm;
 
     private const float Fast = 0.05f;
     private const float Faster = 0.025f;
@@ -65,6 +66,7 @@ public class DialogueManager : MonoBehaviour
     }
     private void Start()
     {
+        source.PlayOneShot(alarm);
         _speed = Fast;
         historic.text = "";
         CloseHistoric();
@@ -92,6 +94,8 @@ public class DialogueManager : MonoBehaviour
         
         SetLayout(dialogue.tone);
         
+        _currentLayout.GetPersonParent().SetActive(true);
+        _currentLayout.GetPersonName().text = dialogue.person.ToString();
         speedBtn.color = _currentLayout.GetButtonColor();
         historicBtn.color = _currentLayout.GetButtonColor();
         _currentLayout.GetCrown().gameObject.SetActive(false);
@@ -99,6 +103,7 @@ public class DialogueManager : MonoBehaviour
         switch (dialogue.tone)
         {
             case Tone.Normal:
+
                 _currentLayout.GetSpeechBubble().sprite = normal.background;
                 _currentLayout.GetCrown().sprite = normal.crown;
                 break;
